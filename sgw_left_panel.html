@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        body {
+            background-color: lightblue;
+        }
+
+        .button {
+            background-color: rgb(119, 76, 175);
+            border: none;
+            color: white;
+            padding: 5px 5px;
+            text-align: center;
+            font-size: 18px;
+            cursor: pointer;
+            border-radius: 2px;
+            width: 100%;
+        }
+
+        .button:hover {
+            background-color: rgb(204, 179, 236);
+        }
+
+        table.roundedCorners {
+            border: 3px solid rgb(95, 71, 231);
+            border-radius: 5px;
+            border-spacing: 2;
+        }
+    </style>
+</head>
+
+<body>
+    <p align="center"><span style="font-family: Copperplate\ Gothic\ Bold; font-size: large;">
+            <bold></bold>
+        </span></p>
+    <table id="table1" class="roundedCorners" width="100%" cellspacing="1" cellpadding="5" bgcolor="#00FFFF">
+        <tbody>
+            <tr>
+                <td>
+                    <a href="https://a2f1db15.eu.ngrok.io/tl" target="main">
+                        <font size="4">
+                            <center>
+                                <button class="button" onclick='document.getElementById("main").src="iframe.html";'>SGW
+                                    West</button>
+                            </center>
+                        </font>
+                    </a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <a href="https://62a9df88.eu.ngrok.io/tl" target="main">
+                        <font size="4">
+                            <center>
+                                <button class="button" onclick='document.getElementById("main").src="iframe.html";'>SGW
+                                    North</button>
+                            </center>
+                        </font>
+                    </a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <a href="https://b76a53e9.eu.ngrok.io/tl" target="main">
+                        <font size="4">
+                            <center><button class="button" onclick='document.getElementById("main").src="iframe.html";'>SGW
+                                East</button></center>
+                        </font>
+                    </a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <a href="https://42386108.eu.ngrok.io/tl" target="main">
+                        <font size="4">
+                            <center><button class="button" onclick='document.getElementById("main").src="iframe.html";'>Rafi</button></center>
+                        </font>
+                    </a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <a href="https://io.adafruit.com/arosoga/dashboards/rafi-dashboard" target="_blank">
+                        <font size="4">
+                            <center><button class="button" onclick='document.getElementById("main").src="iframe.html";'>Dashboard</button></center>
+                        </font>
+                    </a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <p></p>
+
+    <a class="weatherwidget-io" href="https://forecast7.com/en/51d51n0d13/london/" data-label_1="LONDON"
+        data-label_2="WEATHER" data-days="3" data-theme="original">LONDON WEATHER</a>
+    <script>
+        !function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = 'https://weatherwidget.io/js/widget.min.js'; fjs.parentNode.insertBefore(js, fjs); } }(document, 'script', 'weatherwidget-io-js');
+    </script>
+</body>
+
+</html>
