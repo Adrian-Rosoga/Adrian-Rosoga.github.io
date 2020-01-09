@@ -3,11 +3,13 @@
 
 <head>
     <style>
+        /* Buttons */
         body {
             background-color: lightblue;
         }
 
-        .button {
+        .button,
+        .button_no_highlight {
             background-color: rgb(119, 76, 175);
             border: none;
             color: white;
@@ -28,64 +30,70 @@
             border-radius: 5px;
             border-spacing: 2;
         }
+
+        /* Style the active class (and buttons on mouse-over) */
+        .active {
+            background-color: #640;
+            color: white;
+        }
     </style>
 </head>
 
 <body>
-    <p align="center"><span style="font-family: Copperplate\ Gothic\ Bold; font-size: large;">
-            <bold></bold>
-        </span></p>
+
+    <script>
+        var active_button = "button_west";
+        var refresh_interval_msec = 10000;
+        function activate_button_west() {
+            //console.log("activate_button_west()");
+            active_button = "button_west";
+        }
+        function activate_button_north() {
+            //console.log("activate_button_north()");
+            active_button = "button_north";
+        }
+        function activate_button_east() {
+            //console.log("activate_button_east()");
+            active_button = "button_east";
+        }
+        function activate_button_rafi() {
+            //console.log("activate_button_rafi()");
+            active_button = "button_rafi";
+        }
+        function activate_button_info() {
+            //console.log("activate_button_info()");
+            active_button = "button_info";
+        }
+    </script>
+
+    <p></p>
     <table id="table1" class="roundedCorners" width="100%" cellspacing="1" cellpadding="5" bgcolor="#00FFFF">
         <tbody>
             <tr>
                 <td>
-                    <a href="https://a2f1db15.eu.ngrok.io/tl" target="main">
-                        <font size="4">
-                            <center>
-                                <button class="button" onclick='document.getElementById("main").src="iframe.html";'>SGW
-                                    West</button>
-                            </center>
-                        </font>
+                    <a href="https://766abd87.eu.ngrok.io/tl" target="main">
+                        <center>
+                            <button id="button_west" class="button active" onclick='activate_button_west();'>SGW
+                                West</button>
+                        </center>
                     </a>
                 </td>
             </tr>
             <tr>
                 <td>
-                    <a href="https://62a9df88.eu.ngrok.io/tl" target="main">
-                        <font size="4">
-                            <center>
-                                <button class="button" onclick='document.getElementById("main").src="iframe.html";'>SGW
-                                    North</button>
-                            </center>
-                        </font>
+                    <a href="https://94c915b8.eu.ngrok.io/tl" target="main">
+                        <center>
+                            <button id="button_north" class="button" onclick='activate_button_north();'>SGW
+                                North</button>
+                        </center>
                     </a>
                 </td>
             </tr>
             <tr>
                 <td>
-                    <a href="https://b76a53e9.eu.ngrok.io/tl" target="main">
-                        <font size="4">
-                            <center><button class="button" onclick='document.getElementById("main").src="iframe.html";'>SGW
+                    <a href="https://8dc2b2ec.eu.ngrok.io/tl" target="main">
+                        <center><button id="button_east" class="button" onclick='activate_button_east()'>SGW
                                 East</button></center>
-                        </font>
-                    </a>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <a href="https://42386108.eu.ngrok.io/tl" target="main">
-                        <font size="4">
-                            <center><button class="button" onclick='document.getElementById("main").src="iframe.html";'>Rafi</button></center>
-                        </font>
-                    </a>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <a href="https://io.adafruit.com/arosoga/dashboards/rafi-dashboard" target="_blank">
-                        <font size="4">
-                            <center><button class="button" onclick='document.getElementById("main").src="iframe.html";'>Dashboard</button></center>
-                        </font>
                     </a>
                 </td>
             </tr>
@@ -94,11 +102,156 @@
 
     <p></p>
 
+    <center>
+        <select id="refresh" onchange="resetTimer();">
+            <option value="10">Refresh 10 secs</option>
+            <option value="60">Refresh 1 min</option>
+            <option value="300" selected>Refresh 5 mins</option>
+            <option value="1800">Refresh 30 mins</option>
+            <option value="0">Refresh off</option>
+        </select>
+    </center>
+
+    <p></p>
+
+    <table id="table1" class="roundedCorners" width="100%" cellspacing="1" cellpadding="5" bgcolor="#00FFFF">
+        <tbody>
+            <tr>
+                <td>
+                    <a target="_blank">
+                        <center><button class="button_no_highlight"
+                                onclick='openInNewWindow("https://io.adafruit.com/arosoga/dashboards/rafi-dashboard");'>Climate</button>
+                        </center>
+                    </a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <a target="_blank">
+                        <center><button class="button_no_highlight"
+                                onclick='openInNewWindow("https://www.flickr.com/photos/28253871@N05");'>Flickr</button>
+                        </center>
+                    </a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <a href="https://0b219f56.eu.ngrok.io/tl" target="main">
+                        <center><button id="button_rafi" class="button" onclick='activate_button_rafi()'>Rafi</button>
+                        </center>
+                    </a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <a href="info.html" target="main">
+                        <center>
+                            <button button id="button_info" class="button"
+                                onclick='active_button = "button_info";'>Info</button>
+                        </center>
+                    </a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script>
+        // Add active class to the current button (highlight it)
+        var buttons = document.getElementsByClassName("button");
+        for (var i = 0; i < buttons.length; i++) {
+            buttons[i].addEventListener("click", function () {
+                var current = document.getElementsByClassName("active");
+                current[0].className = current[0].className.replace(" active", "");
+                this.className += " active";
+            });
+        }
+    </script>
+
+    <script>
+
+        function GetRefreshMsec() {
+            var e = document.getElementById("refresh");
+            var result = e.options[e.selectedIndex].value;
+            return parseInt(result) * 1000;
+        }
+
+        var timeout;
+        var refresh = function () {
+
+            var refresh_interval_msec = GetRefreshMsec();
+            console.log("=== refresh_interval_msec=" + refresh_interval_msec);
+
+            if (refresh_interval_msec > 0 && (active_button == "button_west" || active_button == "button_north")) {
+                console.log("=== Refreshing...");
+                document.getElementById(active_button).click();
+            } else {
+                console.log("=== Refresh disabled");
+            }
+
+            weather_widget_update();
+
+            timeout = setTimeout(refresh, Math.max(refresh_interval_msec, 5000));
+        }
+        timeout = setTimeout(refresh, Math.max(refresh_interval_msec, 5000));
+
+        function resetTimer() {
+            if (timeout) {
+                console.log("=== resetTimer() to " + GetRefreshMsec());
+                clearTimeout(timeout);
+                var refresh_interval_msec = GetRefreshMsec();
+                if (refresh_interval_msec > 0 && (active_button == "button_west" || active_button == "button_north")) {
+                    console.log("=== Refreshing...");
+                    document.getElementById(active_button).click();
+
+                    weather_widget_update();
+                }
+                timeout = setTimeout(refresh, Math.max(refresh_interval_msec, 5000));
+            }
+        }
+
+        function openInNewWindow(url) {
+            // Use !alert() or confirm() according to taste
+            if (confirm("Page will open in a new window")) window.open(url);
+        }
+
+    </script>
+
+    <p></p>
+
+    <!--     
+    <div id="cont_8737e028a37095e5502f669960566abb"><script type="text/javascript" async src="https://www.theweather.com/wid_loader/8737e028a37095e5502f669960566abb"></script></div>
+-->
+
+    <p></p>
+
     <a class="weatherwidget-io" href="https://forecast7.com/en/51d51n0d13/london/" data-label_1="LONDON"
         data-label_2="WEATHER" data-days="3" data-theme="original">LONDON WEATHER</a>
-    <script>
-        !function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = 'https://weatherwidget.io/js/widget.min.js'; fjs.parentNode.insertBefore(js, fjs); } }(document, 'script', 'weatherwidget-io-js');
-    </script>
+
+        <script>
+            function weather(d, s, id) {
+
+                var weather_widget = d.getElementById(id);
+                if (weather_widget) {
+                    weather_widget.remove();
+                }
+    
+                if (!d.getElementById(id)) {
+                    var js = d.createElement(s);
+                    js.id = id;
+                    js.src = 'https://weatherwidget.io/js/widget.min.js';
+                    var fjs = d.getElementsByTagName(s)[0];
+                    fjs.parentNode.insertBefore(js, fjs);
+                }
+            };
+
+            function weather_widget_update() {   
+                weather(document, 'script', 'weatherwidget-io-js');
+            };
+
+            // Call it to create or refresh the weather widget
+            weather_widget_update();
+        </script>
+
 </body>
 
 </html>
