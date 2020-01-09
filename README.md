@@ -1,2 +1,2 @@
 
-https://github.com/Adrian-Rosoga/Adrian-Rosoga.github.io
+https://adrian-rosoga.github.io/
