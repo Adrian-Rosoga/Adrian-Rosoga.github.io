@@ -2,6 +2,17 @@
 <html>
 
 <head>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-58688062-3"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-58688062-3');
+    </script>
+
     <style>
         /* Buttons */
         body {
@@ -21,7 +32,8 @@
             width: 100%;
         }
 
-        .button:hover {
+        .button:hover,
+        .button_no_highlight:hover {
             background-color: rgb(204, 179, 236);
         }
 
@@ -67,7 +79,13 @@
     </script>
 
     <p></p>
-    <table id="table1" class="roundedCorners" width="100%" cellspacing="1" cellpadding="5" bgcolor="#00FFFF">
+
+    <h2>
+        <center>Thames @ SGW</center>
+    </h2>
+
+    <p></p>
+    <table id="table" class="roundedCorners" width="100%" cellspacing="1" cellpadding="5" bgcolor="#00FFFF">
         <tbody>
             <tr>
                 <td>
@@ -89,7 +107,7 @@
                     </a>
                 </td>
             </tr>
-            <tr>
+            <tr id="table_item_sgw_east">
                 <td>
                     <a href="https://8dc2b2ec.eu.ngrok.io/tl" target="main">
                         <center><button id="button_east" class="button" onclick='activate_button_east()'>SGW
@@ -104,9 +122,8 @@
 
     <center>
         <select id="refresh" onchange="resetTimer();">
-            <option value="10">Refresh 10 secs</option>
-            <option value="60">Refresh 1 min</option>
-            <option value="300" selected>Refresh 5 mins</option>
+            <option value="300">Refresh 5 mins</option>
+            <option value="900" selected>Refresh 15 mins</option>
             <option value="1800">Refresh 30 mins</option>
             <option value="0">Refresh off</option>
         </select>
@@ -114,7 +131,7 @@
 
     <p></p>
 
-    <table id="table1" class="roundedCorners" width="100%" cellspacing="1" cellpadding="5" bgcolor="#00FFFF">
+    <table id="table" class="roundedCorners" width="100%" cellspacing="1" cellpadding="5" bgcolor="#00FFFF">
         <tbody>
             <tr>
                 <td>
@@ -134,10 +151,10 @@
                     </a>
                 </td>
             </tr>
-            <tr>
+            <tr id="table_item_rafi">
                 <td>
                     <a href="https://0b219f56.eu.ngrok.io/tl" target="main">
-                        <center><button id="button_rafi" class="button" onclick='activate_button_rafi()'>Rafi</button>
+                        <center><button id="button_rafi" class="button" onclick='activate_button_rafi()'>Room</button>
                         </center>
                     </a>
                 </td>
@@ -182,10 +199,10 @@
             console.log("=== refresh_interval_msec=" + refresh_interval_msec);
 
             if (refresh_interval_msec > 0 && (active_button == "button_west" || active_button == "button_north")) {
-                console.log("=== Refreshing...");
+                //console.log("=== Refreshing...");
                 document.getElementById(active_button).click();
             } else {
-                console.log("=== Refresh disabled");
+                //console.log("=== Refresh disabled");
             }
 
             weather_widget_update();
@@ -200,7 +217,7 @@
                 clearTimeout(timeout);
                 var refresh_interval_msec = GetRefreshMsec();
                 if (refresh_interval_msec > 0 && (active_button == "button_west" || active_button == "button_north")) {
-                    console.log("=== Refreshing...");
+                    //console.log("=== Refreshing...");
                     document.getElementById(active_button).click();
 
                     weather_widget_update();
@@ -214,27 +231,26 @@
             if (confirm("Page will open in a new window")) window.open(url);
         }
 
+        // Hide
+        document.getElementById("table_item_rafi").style.display = "none";
+        document.getElementById("table_item_sgw_east").style.display = "none";
+
     </script>
 
     <p></p>
-
-    <!--     
-    <div id="cont_8737e028a37095e5502f669960566abb"><script type="text/javascript" async src="https://www.theweather.com/wid_loader/8737e028a37095e5502f669960566abb"></script></div>
--->
-
     <p></p>
 
     <a class="weatherwidget-io" href="https://forecast7.com/en/51d51n0d13/london/" data-label_1="LONDON"
         data-label_2="WEATHER" data-days="3" data-theme="original">LONDON WEATHER</a>
 
-        <script>
+    <script>
             function weather(d, s, id) {
 
                 var weather_widget = d.getElementById(id);
                 if (weather_widget) {
                     weather_widget.remove();
                 }
-    
+
                 if (!d.getElementById(id)) {
                     var js = d.createElement(s);
                     js.id = id;
@@ -244,13 +260,13 @@
                 }
             };
 
-            function weather_widget_update() {   
+            function weather_widget_update() {
                 weather(document, 'script', 'weatherwidget-io-js');
             };
 
-            // Call it to create or refresh the weather widget
+            // Create/refresh the weather widget
             weather_widget_update();
-        </script>
+    </script>
 
 </body>
 
