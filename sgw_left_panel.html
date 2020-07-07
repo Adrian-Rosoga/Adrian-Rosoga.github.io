@@ -89,7 +89,7 @@
         <tbody>
             <tr>
                 <td>
-                    <a href="https://cb91b3bd.eu.ngrok.io/tl" target="main">
+                    <a href="https://2a5bce0a.eu.ngrok.io/tl" target="main">
                         <center>
                             <button id="button_west" class="button active" onclick='activate_button_west();'>SGW
                                 West</button>
@@ -99,7 +99,7 @@
             </tr>
             <tr>
                 <td>
-                    <a href="https://d2eafeb7.eu.ngrok.io/tl" target="main">
+                    <a href="https://48124b7a.eu.ngrok.io/tl" target="main">
                         <center>
                             <button id="button_north" class="button" onclick='activate_button_north();'>SGW
                                 North</button>
@@ -109,7 +109,7 @@
             </tr>
             <tr id="table_item_sgw_east">
                 <td>
-                    <a href="https://e9205b4a.eu.ngrok.io/tl" target="main">
+                    <a href="https://292ad78b.eu.ngrok.io/tl" target="main">
                         <center><button id="button_east" class="button" onclick='activate_button_east()'>SGW
                                 East</button></center>
                     </a>
@@ -132,7 +132,8 @@
     <p></p>
 
     <table id="table" class="roundedCorners" width="100%" cellspacing="1" cellpadding="5" bgcolor="#00FFFF">
-        <tbody>         
+        <tbody>
+            <!--       
             <tr>
                 <td>
                     <a target="main">
@@ -142,11 +143,21 @@
                     </a>
                 </td>
             </tr>
+            -->
             <tr>
                 <td>
                     <a target="_blank">
                         <center><button class="button_no_highlight"
                                 onclick='openInNewWindow("https://www.flickr.com/photos/28253871@N05");'>Flickr</button>
+                        </center>
+                    </a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <a target="_blank">
+                        <center><button class="button_no_highlight"
+                                onclick='openInNewWindow("https://www.youtube.com/playlist?list=PLZH-BQJcpF4j87Cy6yqWmCgOvTms5nF0t");'>Timelapses</button>
                         </center>
                     </a>
                 </td>
@@ -162,7 +173,7 @@
             </tr>
             <tr id="table_item_rafi">
                 <td>
-                    <a href="https://bcd4f50f.eu.ngrok.io/tl" target="main">
+                    <a href="https://9053709a.eu.ngrok.io/tl" target="main">
                         <center><button id="button_rafi" class="button" onclick='activate_button_rafi()'>Room</button>
                         </center>
                     </a>
@@ -237,7 +248,8 @@
 
         function openInNewWindow(url) {
             // Use !alert() or confirm() according to taste
-            if (confirm("Page will open in a new window")) window.open(url);
+            //if (confirm("Page will open in a new window")) window.open(url);
+            window.open(url);
         }
 
         // Hide
