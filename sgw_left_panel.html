@@ -68,6 +68,10 @@
             //console.log("activate_button_east()");
             active_button = "button_east";
         }
+        function activate_button_10cfr() {
+            //console.log("activate_button_10cfr()");
+            active_button = "button_10cfr";
+        }
         function activate_button_rafi() {
             //console.log("activate_button_rafi()");
             active_button = "button_rafi";
@@ -89,7 +93,7 @@
         <tbody>
             <tr>
                 <td>
-                    <a href="https://2a5bce0a.eu.ngrok.io/tl" target="main">
+                    <a href="https://5f4adc6409eb.eu.ngrok.io/tl" target="main">
                         <center>
                             <button id="button_west" class="button active" onclick='activate_button_west();'>SGW
                                 West</button>
@@ -97,19 +101,27 @@
                     </a>
                 </td>
             </tr>
+            <tr id="table_item_sgw_north">
+                <td>
+                    <a href="https://307603257804.eu.ngrok.io/tl" target="main">
+                        <center>
+                            <button id="button_north" class="button" onclick='activate_button_north();'>SGW North</button>
+                        </center>
+                    </a>
+                </td>
+            </tr>
             <tr>
                 <td>
-                    <a href="https://48124b7a.eu.ngrok.io/tl" target="main">
+                    <a href="http://10cfr.ddns.net" target="_blank">
                         <center>
-                            <button id="button_north" class="button" onclick='activate_button_north();'>SGW
-                                North</button>
+                            <button id="button_10cfr" class="button" onclick='activate_button_10cfr();'>10 CFR</button>
                         </center>
                     </a>
                 </td>
             </tr>
             <tr id="table_item_sgw_east">
                 <td>
-                    <a href="https://292ad78b.eu.ngrok.io/tl" target="main">
+                    <a href="https://ee267d1b636e.eu.ngrok.io/tl" target="main">
                         <center><button id="button_east" class="button" onclick='activate_button_east()'>SGW
                                 East</button></center>
                     </a>
@@ -132,18 +144,16 @@
     <p></p>
 
     <table id="table" class="roundedCorners" width="100%" cellspacing="1" cellpadding="5" bgcolor="#00FFFF">
-        <tbody>
-            <!--       
+        <tbody>      
             <tr>
                 <td>
                     <a target="main">
                         <center><button class="button_no_highlight"
-                                onclick='openInNewWindow("http://tides-env.m5xmmhjzmw.eu-west-2.elasticbeanstalk.com");'>Tide</button>
+                                onclick='openInNewWindow("http://tides-env.eba-xgy3parc.eu-west-2.elasticbeanstalk.com/");'>Tide</button>
                         </center>
                     </a>
                 </td>
             </tr>
-            -->
             <tr>
                 <td>
                     <a target="_blank">
@@ -173,7 +183,7 @@
             </tr>
             <tr id="table_item_rafi">
                 <td>
-                    <a href="https://9053709a.eu.ngrok.io/tl" target="main">
+                    <a href="https://1452e090e699.eu.ngrok.io/tl" target="main">
                         <center><button id="button_rafi" class="button" onclick='activate_button_rafi()'>Room</button>
                         </center>
                     </a>
@@ -254,6 +264,7 @@
 
         // Hide
         document.getElementById("table_item_rafi").style.display = "none";
+        document.getElementById("table_item_sgw_north").style.display = "none";
         document.getElementById("table_item_sgw_east").style.display = "none";
 
     </script>
